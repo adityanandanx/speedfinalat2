@@ -31,8 +31,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
   playPauseEl.addEventListener("click", (e) => {
     if (videoEl.paused) {
       videoEl.play();
+      playPauseEl.textContent = "| |";
     } else {
       videoEl.pause();
+      playPauseEl.textContent = ">";
     }
   });
 
