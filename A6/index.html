@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A6</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        background-color: rgb(26, 26, 26);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      button {
+        background-color: rgb(0, 143, 187);
+        border: none;
+        outline: none;
+        padding: 0.5rem 1rem;
+        color: white;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        position: relative;
+      }
+      .tooltip {
+        position: absolute;
+        background-color: black;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.5rem;
+        width: max-content;
+        opacity: 0;
+      }
+      .tooltip::after {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotateZ(45deg);
+      }
+
+      button > .tooltip {
+        top: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      button:hover > .tooltip,
+      .tooltip:hover > .tooltip {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .t1::after {
+        top: 0;
+        left: 50%;
+      }
+
+      .t2 {
+        left: calc(100% + 10px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .t2::after {
+        left: 0px;
+        top: 50%;
+      }
+      .t3 {
+        left: 50%;
+        top: calc(100% + 10px);
+        transform: translateX(-50%);
+      }
+      .t3::after {
+        left: 50%;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <button>
+      Hover me
+      <span class="tooltip t1"
+        >First tooltip
+        <span class="tooltip t2"
+          >Second Tooltip <span class="tooltip t3">Third tooltip</span></span
+        ></span
+      >
+    </button>
+  </body>
+</html>
