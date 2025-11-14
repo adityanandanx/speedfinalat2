@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A4</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
+      .c {
+        width: 100px;
+        height: 100px;
+        border-radius: 100vh;
+        border: 5px solid white;
+        opacity: 0;
+        animation: zoom 4000ms ease calc(var(--i) * 300ms) infinite forwards;
+        position: absolute;
+      }
+      @keyframes zoom {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateZ(1000px);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="c" style="--i: 1"></div>
+    <div class="c" style="--i: 2"></div>
+    <div class="c" style="--i: 3"></div>
+    <div class="c" style="--i: 4"></div>
+    <div class="c" style="--i: 5"></div>
+  </body>
+</html>
