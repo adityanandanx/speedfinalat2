@@ -47,6 +47,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
     d.fill();
     updateAscii();
   });
+  drawCanvas.addEventListener("touchmove", (e) => {
+    const r = drawCanvas.getBoundingClientRect();
+
+    const x = e.targetTouches[0].pageX - r.left;
+    const y = e.targetTouches[0].pageY - r.top;
+    d.fillStyle = "red";
+    d.beginPath();
+    d.arc(x, y, 20, 0, Math.PI * 2);
+    d.closePath();
+    d.fill();
+    updateAscii();
+    e.preventDefault();
+  });
 
   const updateAscii = () => {
     const img = d.getImageData(0, 0, w, h);
